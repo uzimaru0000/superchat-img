@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "@uzimaru0000/vercel-og-image@1.6.0",
+      "memory": 1024
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/super-chat",
+      "destination": "/api/super-chat/index.js"
+    }
+  ],
+  "env": {
+    "OG_IMAGE_TARGET": "#super-chat"
+  }
+}
