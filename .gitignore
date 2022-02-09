@@ -146,3 +146,4 @@ dist
 
 .vercel
 api/
+!src/api
