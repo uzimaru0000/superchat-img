@@ -4,7 +4,7 @@
     "module": "commonjs",
     "target": "esnext",
     "moduleResolution": "node",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "sourceMap": true,
     "strict": true,
     "noFallthroughCasesInSwitch": true,
