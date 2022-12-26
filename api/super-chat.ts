@@ -52,7 +52,7 @@ const getProps = async (req: VercelRequest): Promise<Props> => {
             icon: files['icon']?.[0],
             name: fields['name']?.[0],
             price: Number(fields['price']),
-            message: fields['message'],
+            message: fields['message']?.[0],
           });
         }
       });

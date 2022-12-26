@@ -50,12 +50,19 @@ export const SuperChat: React.FC<Props> = ({
         ) : (
           <div
             style={{
-              width: '48px',
+              width: '80px',
               height: '80px',
               borderRadius: '50%',
               background: 'rgb(128, 128, 128)',
+              color: 'rgba(0, 0, 0, 0.5)',
+              fontSize: '48px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
-          />
+          >
+            ？
+          </div>
         )}
         <div
           style={{
