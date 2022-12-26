@@ -12,6 +12,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/multiparty": "^0.0.33",
     "@types/node-fetch": "^2.6.2",
     "@types/react": "^17.0.39",
     "@vercel/node": "^2.5.25",
@@ -20,6 +21,7 @@
   },
   "dependencies": {
     "@resvg/resvg-js": "^2.1.0",
+    "multiparty": "^4.2.3",
     "node-fetch": "2",
     "react": "^17.0.2",
     "satori": "^0.0.42"
