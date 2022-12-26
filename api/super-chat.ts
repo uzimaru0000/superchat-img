@@ -58,5 +58,9 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   const renderImg = resvg.render();
   const img = renderImg.asPng();
 
-  res.status(200).setHeader('content-type', 'image/png').send(img);
+  res
+    .status(200)
+    .setHeader('content-type', 'image/png')
+    .setHeader('Access-Control-Allow-Origin', '*')
+    .send(img);
 };
