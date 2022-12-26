@@ -22,14 +22,14 @@ export const SuperChat: React.FC<Props> = ({
         flexDirection: 'column',
         color: text,
         fontWeight: '500',
-        borderRadius: '4px',
+        borderRadius: '8px',
         overflow: 'hidden',
       }}
     >
       <div
         style={{
           width: '100%',
-          padding: '8px 16px',
+          padding: '16px 32px',
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
@@ -39,19 +39,19 @@ export const SuperChat: React.FC<Props> = ({
         {icon ? (
           <img
             style={{
-              width: '40px',
-              height: '40px',
+              width: '80px',
+              height: '80px',
               borderRadius: '50%',
             }}
-            width={40}
-            height={40}
+            width={80}
+            height={80}
             src={icon}
           />
         ) : (
           <div
             style={{
-              width: '40px',
-              height: '40px',
+              width: '48px',
+              height: '80px',
               borderRadius: '50%',
               background: 'rgb(128, 128, 128)',
             }}
@@ -61,21 +61,24 @@ export const SuperChat: React.FC<Props> = ({
           style={{
             display: 'flex',
             flexDirection: 'column',
-            marginLeft: '16px',
+            marginLeft: '32px',
           }}
         >
-          <div style={{ display: 'flex' }}>{name}</div>
-          <div style={{ display: 'flex' }}>￥{price.toLocaleString()}</div>
+          <div style={{ display: 'flex', fontSize: '32px' }}>{name}</div>
+          <div style={{ display: 'flex', fontSize: '32px' }}>
+            ￥{price.toLocaleString()}
+          </div>
         </div>
       </div>
-      {message && (
+      {price >= 200 && message && (
         <div
           style={{
             width: '100%',
             display: 'flex',
             background: body,
-            padding: '8px 16px',
+            padding: '16px 32px',
             fontWeight: '400',
+            fontSize: '32px',
           }}
         >
           {message}
@@ -86,29 +89,46 @@ export const SuperChat: React.FC<Props> = ({
 };
 
 const color = (price: number) => {
-  if (price < 1000) {
-    return {
-      header: 'rgb(0, 183, 155)',
-      body: 'rgb(27, 230, 173)',
-      text: 'black',
-    };
-  } else if (price < 5000) {
-    return {
-      header: 'rgb(255, 170, 0)',
-      body: 'rgb(255, 195, 34)',
-      text: 'black',
-    };
-  } else if (price < 10000) {
-    return {
-      header: 'rgb(186, 23, 81)',
-      body: 'rgb(231, 28, 88)',
+  const keys = [100, 200, 500, 1000, 2000, 5000, 10000] as const;
+  const map = {
+    100: {
+      header: 'rgb(21, 101, 192)',
+      body: 'rgb(21, 101, 192)',
       text: 'white',
-    };
-  } else {
-    return {
-      header: 'rgb(183, 35, 26)',
-      body: 'rgb(205, 49, 37)',
+    },
+    200: {
+      header: 'rgb(0, 184, 212)',
+      body: 'rgb(0, 229, 255)',
+      text: 'black',
+    },
+    500: {
+      header: 'rgb(0, 191, 165)',
+      body: 'rgb(29, 233, 182)',
+      text: 'black',
+    },
+    1000: {
+      header: 'rgb(255, 179, 0)',
+      body: 'rgb(255, 202, 40)',
+      text: 'black',
+    },
+    2000: {
+      header: 'rgb(230, 81, 0)',
+      body: 'rgb(245, 124, 0)',
       text: 'white',
-    };
-  }
+    },
+    5000: {
+      header: 'rgb(194, 24, 91)',
+      body: 'rgb(233, 30, 99)',
+      text: 'white',
+    },
+    10000: {
+      header: 'rgb(208, 0, 0)',
+      body: 'rgb(230, 33, 23)',
+      text: 'white',
+    },
+  };
+
+  const key = keys.filter((x) => Number(x) <= price).reverse()[0];
+
+  return map[key];
 };

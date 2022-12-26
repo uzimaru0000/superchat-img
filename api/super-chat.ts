@@ -86,7 +86,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       message,
     }),
     {
-      width: 337,
+      width: 674,
       height: 1000,
       fonts: [
         {
@@ -103,7 +103,9 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     }
   );
 
-  const resvg = new Resvg(svg);
+  const resvg = new Resvg(svg, {
+    background: 'transparent',
+  });
   resvg.cropByBBox(resvg.innerBBox() ?? new BBox());
   const renderImg = resvg.render();
   const img = renderImg.asPng();
