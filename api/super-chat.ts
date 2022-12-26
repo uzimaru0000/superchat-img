@@ -114,6 +114,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     .status(200)
     .setHeader('content-type', 'image/png')
     .setHeader('Access-Control-Allow-Origin', '*')
+    .setHeader('Cache-Control', 'public, max-age=14400')
     .send(img);
 };
 
