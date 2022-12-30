@@ -42,6 +42,8 @@ export const SuperChat: React.FC<Props> = ({
               width: '80px',
               height: '80px',
               borderRadius: '50%',
+              objectFit: 'cover',
+              objectPosition: 'center',
             }}
             width={80}
             height={80}
