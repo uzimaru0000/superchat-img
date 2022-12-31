@@ -38,8 +38,6 @@ app
   .get('/', async (c) => {
     const { price, name, message, icon: iconUrl } = c.req.query();
 
-    const storeKey = await createKey({ price, name, message, iconUrl });
-
     const icon = await getIcon(iconUrl);
     const notoSans400 = await getFonts(c.env.SUPERCHAT_IMG, {
       family: 'Noto Sans JP',
@@ -80,8 +78,6 @@ app
   .post('/', async (c) => {
     const { price, name, message, icon: iconFile } = await c.req.parseBody();
     const icon = await getIcon(iconFile as File);
-
-    const storeKey = await createKey({ price, name, message, icon });
 
     const notoSans400 = await getFonts(c.env.SUPERCHAT_IMG, {
       family: 'Noto Sans JP',
