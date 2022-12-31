@@ -1,3 +1,7 @@
 name = "superchat-img"
 main = "src/index.tsx"
 compatibility_date = "2022-12-30"
+
+kv_namespaces = [
+  { binding = "SUPERCHAT_IMG", preview_id = "b92dda8bbdbf4e5e91a9d20e47666fa2", id = "5319cf5718974f4cb9f42f7601467f8a" }
+]

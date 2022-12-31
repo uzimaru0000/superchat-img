@@ -6,7 +6,8 @@
   "scripts": {
     "start": "wrangler dev",
     "deploy": "wrangler publish",
-    "postinstall": "mkdir -p src/vender && curl -L 'https://unpkg.com/yoga-wasm-web@0.2.0/dist/yoga.wasm' -o src/vender/yoga.wasm && curl -L 'https://unpkg.com/@resvg/resvg-wasm@2.2.0/index_bg.wasm' -o src/vender/resvg.wasm"
+    "postinstall": "mkdir -p src/vender && curl -L 'https://unpkg.com/yoga-wasm-web@0.2.0/dist/yoga.wasm' -o src/vender/yoga.wasm && curl -L 'https://unpkg.com/@resvg/resvg-wasm@2.2.0/index_bg.wasm' -o src/vender/resvg.wasm",
+    "dev": "wrangler dev --local"
   },
   "keywords": [],
   "author": "",
