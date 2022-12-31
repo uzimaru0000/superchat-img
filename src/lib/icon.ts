@@ -1,4 +1,8 @@
-export const getIcon = async (data: string | File) => {
+export const getIcon = async (data?: string | File) => {
+  if (!data) {
+    return null;
+  }
+
   if (typeof data === 'string') {
     return fetchIcon(data);
   } else {

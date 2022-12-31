@@ -21,13 +21,15 @@ app
       />
     );
 
+    c.res.headers.set('content-type', 'image/png');
+    c.res.headers.set('Access-Control-Allow-Origin', '*');
+    c.res.headers.set('Cache-Control', 'public, max-age=14400');
+
     return c.body(img);
   })
   .post('/', async (c) => {
     const { price, name, message, icon: iconFile } = await c.req.parseBody();
     const icon = await getIcon(iconFile as File);
-
-    console.log({ price, name, message, icon: iconFile });
 
     const img = await generateImage(
       <SuperChat
@@ -37,6 +39,10 @@ app
         message={message ? String(message) : ''}
       />
     );
+
+    c.res.headers.set('content-type', 'image/png');
+    c.res.headers.set('Access-Control-Allow-Origin', '*');
+    c.res.headers.set('Cache-Control', 'public, max-age=14400');
 
     return c.body(img);
   });
